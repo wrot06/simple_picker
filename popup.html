@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Simple Picker</title>
+
+<link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+/>
+
+<link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+<div class="container p-2">
+
+<div class="developer">
+  <a
+    href="https://www.youtube.com/@wareorto"
+    target="_blank"
+    rel="noopener"
+    id="developerLink"
+  >
+    by wrot06
+  </a>
+</div>
+
+  <button
+    id="pickBtn"
+    class="button is-primary is-small is-fullwidth mb-2"
+  >
+    Run Pick Color
+  </button>
+
+  <div class="is-flex is-align-items-center is-gap-1">
+
+    <button id="preview"></button>
+
+    <input
+      type="text"
+      id="hexColor"
+      class="input is-small mx-1"
+      readonly
+    >
+
+    <button
+      id="copyBtn1"
+      class="button is-dark is-small"
+    >
+      copy
+    </button>
+
+  </div>
+
+</div>
+
+<script src="popup.js"></script>
+
+</body>
+</html>

@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Simple Picker",
   "short_name": "Simple Picker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Minimalist color picker extension for Chrome. Pick and copy colors instantly in HEX format.",
   "author": "RENE ORDOÑEZ (wrot06)",
   "homepage_url": "https://github.com/wrot06/Simple_Picker",

@@ -1,10 +1,22 @@
 body{
   width:300px;
   padding:4px;
+  position:relative;
 }
 
 .container{
-  padding:4px !important;
+  padding:4px!important;
+}
+
+#preview{
+  position:absolute;
+  left:0;
+  bottom:0;
+  width:42px;
+  height:46px;
+  border:none;
+  border-radius:0 15px 0 0;
+  background:#dcdcdc;
 }
 
 .developer{
@@ -21,14 +33,14 @@ body{
   color:#00ebc7;
 }
 
-#preview{
-  width:25px;
-  height:25px;
-  border-radius:10%;
-  border:1px solid #dcdcdc;
-  flex-shrink:0;
-}
+
 
 #hexColor{
-  font-size:11px;
+  font-size:15px; 
+}
+
+
+
+.is-flex{
+  margin-left:35px;
 }

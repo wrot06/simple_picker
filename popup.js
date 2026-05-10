@@ -1,38 +1,29 @@
-const pickBtn = document.getElementById("pickBtn");
-const copyBtn = document.getElementById("copyBtn1");
-const hexColor = document.getElementById("hexColor");
-const preview = document.getElementById("preview");
+const pickBtn=document.getElementById("pickBtn");
+const copyBtn=document.getElementById("copyBtn1");
+const hexColor=document.getElementById("hexColor");
+const preview=document.getElementById("preview");
 
 loadSavedColor();
 
-pickBtn.addEventListener("click", async () => {
+pickBtn.addEventListener("click",async()=>{
 
-  try {
+  try{
 
-    const eyeDropper = new EyeDropper();
+    const eyeDropper=new EyeDropper();
+    const result=await eyeDropper.open();
 
-    const result = await eyeDropper.open();
+    const color=result.sRGBHex;
 
-    const color = result.sRGBHex;
-
-    hexColor.value = color;
-
-    preview.style.background = color;
+    hexColor.value=color;
+    preview.style.background=color;
 
     chrome.storage.local.set({
-      pickedColor: color
+      pickedColor:color
     });
 
-    // COPIAR AUTOMÁTICAMENTE
-    await navigator.clipboard.writeText(color);
+    await copyColor();
 
-    copyBtn.innerText = "copied";
-
-    setTimeout(() => {
-      copyBtn.innerText = "copy";
-    }, 3000);
-
-  } catch (error) {
+  }catch(error){
 
     console.log("Selección cancelada");
 
@@ -40,31 +31,33 @@ pickBtn.addEventListener("click", async () => {
 
 });
 
-copyBtn.addEventListener("click", async () => {
+copyBtn.addEventListener("click",copyColor);
+preview.addEventListener("click",copyColor);
 
-  const color = hexColor.value;
+async function copyColor(){
 
-  if(!color) return;
+  const color=hexColor.value;
+
+  if(!color)return;
 
   await navigator.clipboard.writeText(color);
 
-  copyBtn.innerText = "copied";
+  copyBtn.innerText="copied";
 
-  setTimeout(() => {
-    copyBtn.innerText = "copy";
-  }, 3000);
+  setTimeout(()=>{
+    copyBtn.innerText="copy";
+  },3000);
 
-});
+}
 
 function loadSavedColor(){
 
-  chrome.storage.local.get(["pickedColor"], (result) => {
+  chrome.storage.local.get(["pickedColor"],(result)=>{
 
     if(result.pickedColor){
 
-      hexColor.value = result.pickedColor;
-
-      preview.style.background = result.pickedColor;
+      hexColor.value=result.pickedColor;
+      preview.style.background=result.pickedColor;
 
     }
 
